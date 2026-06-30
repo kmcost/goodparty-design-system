@@ -1,0 +1,80 @@
+import type { Preview } from '@storybook/nextjs-vite'
+import React from 'react'
+import '../src/globals.css'
+import './storybook-dark.css'
+
+const preview: Preview = {
+  globalTypes: {
+    colorScheme: {
+      description: 'Color scheme',
+      toolbar: {
+        title: 'Color scheme',
+        items: [
+          { value: 'light', title: 'Light', icon: 'sun' },
+          { value: 'dark', title: 'Dark', icon: 'moon' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  globals: {
+    colorScheme: 'light',
+  },
+  decorators: [
+    (Story, context) => {
+      const isDark = context.globals['colorScheme'] === 'dark'
+      if (typeof document !== 'undefined') {
+        document.documentElement.classList.toggle('sb-dark', isDark)
+        // Radix portals (dropdown, select, popover, tooltip) mount to
+        // document.body — outside the story wrapper below — so the wrapper's
+        // `.dark` class never reaches them and the scoped dark-mode tokens
+        // (`.dark [data-slot]…`) don't apply. Toggling `.dark` on body too lets
+        // portaled content pick up dark mode like the rest of the story.
+        document.body.classList.toggle('dark', isDark)
+      }
+      return React.createElement(
+        'div',
+        { className: isDark ? 'dark' : undefined },
+        React.createElement(
+          'div',
+          {
+            'data-slot': 'storybook',
+            style: { padding: '1.5rem' },
+          },
+          React.createElement(Story),
+        ),
+      )
+    },
+  ],
+  parameters: {
+    backgrounds: { disable: true },
+    layout: 'fullscreen',
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Foundations',
+          [
+            'Borders',
+            'Colors',
+            'Icons',
+            'Logo',
+            'Shadows',
+            'Spacing',
+            'Typography',
+          ],
+          'Components',
+          'Campaign Plan',
+        ],
+      },
+    },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
+}
+
+export default preview

@@ -1,0 +1,13 @@
+/* Bundles the design system's own CSS layers for standalone Storybook use. */
+@import './design-tokens.css';
+@import 'tailwindcss';
+@import './tailwind-theme.css';
+@import './typography.css';
+@import './styleguide-scope.css';
+@import 'tw-animate-css';
+
+@plugin '@tailwindcss/typography';
+
+@source './';
+
+@custom-variant dark (&:is(.dark *));
