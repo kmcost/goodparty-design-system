@@ -254,17 +254,6 @@ Use Figma token names directly as Tailwind classes.
 
 If a value is in Figma but not in `design-tokens.css`, it is not yet part of the system.
 
-### Figma Design System URLs
-
-| Section         | Node ID       |
-| --------------- | ------------- |
-| Branding Colors | `23364-36102` |
-| Semantic Colors | `24445-53631` |
-| Tailwind Colors | `24445-54212` |
-| Theme           | `24452-18276` |
-
-Base URL: `https://www.figma.com/design/dmMrTWyBirANhArKs5mTmr/GoodParty-Design-System----shadcn-ui`
-
 ---
 
 ## Storybook
@@ -430,7 +419,7 @@ During the Tailwind v4 upgrade, several behavioral changes required fixes in `gl
 
 7. **Important modifier syntax** — v4 uses suffix `hidden!` instead of prefix `!hidden`. The old syntax still works but is deprecated.
 
-These fixes are in `app/globals.css` and apply automatically. See `styleguide/CHANGELOG.md` for details.
+These fixes are in `app/globals.css` and apply automatically.
 
 ---
 
