@@ -324,7 +324,7 @@ function SwatchRow({ children }) {
   return <div className="flex flex-wrap gap-2">{children}</div>
 }
 
-function ScaleRow({ scaleName, prefix, colors }) {
+function ScaleRow({ scaleName, prefix, colors, isDark }) {
   return (
     <Section title={scaleName}>
       <SwatchRow>
@@ -334,6 +334,7 @@ function ScaleRow({ scaleName, prefix, colors }) {
             name={`${step}`}
             hex={hex}
             tailwindClass={`${prefix}-${step}`}
+            isDark={isDark}
           />
         ))}
       </SwatchRow>
@@ -703,6 +704,8 @@ ThemeColors.parameters = {
 // =============================================================================
 export const BrandingColors = () => {
   const [data, setData] = useState(null)
+  const [globals] = useGlobals()
+  const isDark = globals.colorScheme === 'dark'
 
   useEffect(() => {
     const el = document.documentElement
@@ -744,6 +747,7 @@ export const BrandingColors = () => {
               name={name}
               hex={hex}
               tailwindClass={tailwindClass}
+              isDark={isDark}
             />
           ))}
         </SwatchRow>
@@ -753,36 +757,43 @@ export const BrandingColors = () => {
         scaleName="Brand Red"
         prefix="bg-brand-red"
         colors={data.brandRed}
+        isDark={isDark}
       />
       <ScaleRow
         scaleName="Waxflower"
         prefix="bg-brand-waxflower"
         colors={data.waxflower}
+        isDark={isDark}
       />
       <ScaleRow
         scaleName="Bright Yellow"
         prefix="bg-brand-bright-yellow"
         colors={data.brightYellow}
+        isDark={isDark}
       />
       <ScaleRow
         scaleName="Halo Green"
         prefix="bg-brand-halo-green"
         colors={data.haloGreen}
+        isDark={isDark}
       />
       <ScaleRow
         scaleName="Brand Blue"
         prefix="bg-brand-blue"
         colors={data.brandBlue}
+        isDark={isDark}
       />
       <ScaleRow
         scaleName="Lavender"
         prefix="bg-brand-lavender"
         colors={data.lavender}
+        isDark={isDark}
       />
       <ScaleRow
         scaleName="Midnight"
         prefix="bg-brand-midnight"
         colors={data.midnight}
+        isDark={isDark}
       />
     </div>
   )
@@ -822,6 +833,8 @@ const TW_BASE_STEPS = ['black', 'white']
 
 export const TailwindColors = () => {
   const [data, setData] = useState(null)
+  const [globals] = useGlobals()
+  const isDark = globals.colorScheme === 'dark'
 
   useEffect(() => {
     const el = document.documentElement
@@ -855,6 +868,7 @@ export const TailwindColors = () => {
                 name={step}
                 hex={hex}
                 tailwindClass={`bg-${step}`}
+                isDark={isDark}
               />
             ))}
           </SwatchRow>
@@ -867,6 +881,7 @@ export const TailwindColors = () => {
           scaleName={scaleName.charAt(0).toUpperCase() + scaleName.slice(1)}
           prefix={`bg-${scaleName}`}
           colors={colors}
+          isDark={isDark}
         />
       ))}
     </div>

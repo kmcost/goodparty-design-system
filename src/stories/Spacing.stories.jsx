@@ -55,7 +55,6 @@ const SPACING_SCALE = [
 
 const MAX_BAR_WIDTH = 240
 const MAX_PX = 384
-const BAR_COLOR = '#b4cef0'
 
 // =============================================================================
 // Spacing Scale
@@ -69,41 +68,47 @@ export const SpacingScale = () => (
 
     <table className="w-full border-collapse">
       <thead>
-        <tr className="border-b border-gray-200 text-left">
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-28">
+        <tr className="border-b border-base-border text-left">
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-28">
             Token
           </th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-28">
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-28">
             Multiplier
           </th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-32">
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-32">
             Rem
           </th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-20">Px</th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900">Visual</th>
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-20">
+            Px
+          </th>
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground">
+            Visual
+          </th>
         </tr>
       </thead>
       <tbody>
         {SPACING_SCALE.map(({ token, multiplier, rem, px }) => (
-          <tr key={token} className="border-b border-gray-200">
+          <tr key={token} className="border-b border-base-border">
             <td className="py-3 px-4">
-              <code className="text-sm bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
+              <code className="text-sm bg-base-muted text-base-foreground px-1.5 py-0.5 rounded">
                 {token}
               </code>
             </td>
-            <td className="py-3 px-4 text-sm text-gray-500">{multiplier}</td>
-            <td className="py-3 px-4 text-sm text-gray-600">{rem}</td>
-            <td className="py-3 px-4 text-sm text-gray-600">{px}px</td>
+            <td className="py-3 px-4 text-sm text-base-foreground">
+              {multiplier}
+            </td>
+            <td className="py-3 px-4 text-sm text-base-foreground">{rem}</td>
+            <td className="py-3 px-4 text-sm text-base-foreground">{px}px</td>
             <td
               className="py-3 px-4 flex items-center"
               style={{ minHeight: 44 }}
             >
               {px > 0 && (
                 <div
+                  className="bg-primary"
                   style={{
                     width: Math.max(2, (px / MAX_PX) * MAX_BAR_WIDTH),
                     height: 16,
-                    backgroundColor: BAR_COLOR,
                     borderRadius: 2,
                     flexShrink: 0,
                   }}

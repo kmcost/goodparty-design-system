@@ -15,8 +15,6 @@ const meta = {
 
 export default meta
 
-const SAMPLE_BG = '#b4cef0' // midnight-200
-
 // =============================================================================
 // Box Shadows
 // =============================================================================
@@ -76,11 +74,11 @@ export function BoxShadows() {
 
       <table className="w-full border-collapse">
         <thead>
-          <tr className="border-b border-gray-200 text-left">
-            <th className="py-3 px-4 text-sm font-bold text-gray-900 w-36">
+          <tr className="border-b border-base-border text-left">
+            <th className="py-3 px-4 text-sm font-bold text-base-foreground w-36">
               Token
             </th>
-            <th className="py-3 px-4 text-sm font-bold text-gray-900">
+            <th className="py-3 px-4 text-sm font-bold text-base-foreground">
               Sample
             </th>
           </tr>
@@ -89,9 +87,9 @@ export function BoxShadows() {
           {BOX_SHADOWS.map(({ token, boxShadow }) => {
             const isCopied = copied === token
             return (
-              <tr key={token} className="border-b border-gray-200">
+              <tr key={token} className="border-b border-base-border">
                 <td className="py-6 px-4">
-                  <code className="text-sm bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded whitespace-nowrap">
+                  <code className="text-sm bg-base-muted text-base-foreground px-1.5 py-0.5 rounded whitespace-nowrap">
                     {token}
                   </code>
                 </td>
@@ -99,11 +97,11 @@ export function BoxShadows() {
                   <button
                     onClick={() => handleCopy(token, boxShadow)}
                     title="Click to copy CSS value"
+                    className={isCopied ? 'bg-primary-light' : 'bg-primary'}
                     style={{
                       width: 64,
                       height: 64,
                       borderRadius: 12,
-                      backgroundColor: isCopied ? '#dbeafe' : SAMPLE_BG,
                       boxShadow,
                       border: 'none',
                       cursor: 'pointer',
@@ -114,13 +112,7 @@ export function BoxShadows() {
                     }}
                   >
                     {isCopied && (
-                      <span
-                        style={{
-                          fontSize: 10,
-                          color: '#2563eb',
-                          fontWeight: 600,
-                        }}
-                      >
+                      <span className="text-primary text-[10px] font-semibold">
                         Copied!
                       </span>
                     )}
@@ -196,11 +188,11 @@ export function DropShadows() {
 
       <table className="w-full border-collapse">
         <thead>
-          <tr className="border-b border-gray-200 text-left">
-            <th className="py-3 px-4 text-sm font-bold text-gray-900 w-36">
+          <tr className="border-b border-base-border text-left">
+            <th className="py-3 px-4 text-sm font-bold text-base-foreground w-36">
               Token
             </th>
-            <th className="py-3 px-4 text-sm font-bold text-gray-900">
+            <th className="py-3 px-4 text-sm font-bold text-base-foreground">
               Sample
             </th>
           </tr>
@@ -209,9 +201,9 @@ export function DropShadows() {
           {DROP_SHADOWS.map(({ token, filter }) => {
             const isCopied = copied === token
             return (
-              <tr key={token} className="border-b border-gray-200">
+              <tr key={token} className="border-b border-base-border">
                 <td className="py-6 px-4">
-                  <code className="text-sm bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded whitespace-nowrap">
+                  <code className="text-sm bg-base-muted text-base-foreground px-1.5 py-0.5 rounded whitespace-nowrap">
                     {token}
                   </code>
                 </td>
@@ -219,11 +211,11 @@ export function DropShadows() {
                   <button
                     onClick={() => handleCopy(token, filter)}
                     title="Click to copy CSS value"
+                    className={isCopied ? 'bg-primary-light' : 'bg-primary'}
                     style={{
                       width: 64,
                       height: 64,
                       borderRadius: 12,
-                      backgroundColor: isCopied ? '#dbeafe' : SAMPLE_BG,
                       filter: isCopied ? 'none' : filter,
                       border: 'none',
                       cursor: 'pointer',
@@ -234,13 +226,7 @@ export function DropShadows() {
                     }}
                   >
                     {isCopied && (
-                      <span
-                        style={{
-                          fontSize: 10,
-                          color: '#2563eb',
-                          fontWeight: 600,
-                        }}
-                      >
+                      <span className="text-primary text-[10px] font-semibold">
                         Copied!
                       </span>
                     )}

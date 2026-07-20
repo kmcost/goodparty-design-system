@@ -14,10 +14,6 @@ const meta = {
 
 export default meta
 
-const RADIUS_SAMPLE_BG = '#b4cef0'
-const WIDTH_SAMPLE_BG = '#ecf5ff'
-const WIDTH_SAMPLE_BORDER = '#b4cef0'
-
 // =============================================================================
 // Border Radius
 // =============================================================================
@@ -48,34 +44,38 @@ export const BorderRadius = () => (
 
     <table className="w-full border-collapse">
       <thead>
-        <tr className="border-b border-gray-200 text-left">
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-48">
+        <tr className="border-b border-base-border text-left">
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-48">
             Token
           </th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-24">Px</th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900">Sample</th>
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-24">
+            Px
+          </th>
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground">
+            Sample
+          </th>
         </tr>
       </thead>
       <tbody>
         {BORDER_RADIUS.map(({ token, px }) => {
           const size = radiusSampleSize(px)
           return (
-            <tr key={token} className="border-b border-gray-200">
+            <tr key={token} className="border-b border-base-border">
               <td className="py-4 px-4">
-                <code className="text-sm bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
+                <code className="text-sm bg-base-muted text-base-foreground px-1.5 py-0.5 rounded">
                   {token}
                 </code>
               </td>
-              <td className="py-4 px-4 text-sm text-gray-600">
+              <td className="py-4 px-4 text-sm text-base-foreground">
                 {px === 9999 ? '∞' : `${px}px`}
               </td>
               <td className="py-4 px-4">
                 <div
+                  className="bg-primary"
                   style={{
                     width: size,
                     height: size,
                     borderRadius: px === 9999 ? '9999px' : `${px}px`,
-                    backgroundColor: RADIUS_SAMPLE_BG,
                     flexShrink: 0,
                   }}
                 />
@@ -115,31 +115,36 @@ export const BorderWidth = () => (
 
     <table className="w-full border-collapse">
       <thead>
-        <tr className="border-b border-gray-200 text-left">
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-48">
+        <tr className="border-b border-base-border text-left">
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-48">
             Token
           </th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900 w-24">Px</th>
-          <th className="py-3 px-4 text-sm font-bold text-gray-900">Sample</th>
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground w-24">
+            Px
+          </th>
+          <th className="py-3 px-4 text-sm font-bold text-base-foreground">
+            Sample
+          </th>
         </tr>
       </thead>
       <tbody>
         {BORDER_WIDTH.map(({ token, px }) => (
-          <tr key={token} className="border-b border-gray-200">
+          <tr key={token} className="border-b border-base-border">
             <td className="py-4 px-4">
-              <code className="text-sm bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
+              <code className="text-sm bg-base-muted text-base-foreground px-1.5 py-0.5 rounded">
                 {token}
               </code>
             </td>
-            <td className="py-4 px-4 text-sm text-gray-600">{px}px</td>
+            <td className="py-4 px-4 text-sm text-base-foreground">{px}px</td>
             <td className="py-4 px-4">
               <div
+                className="bg-primary-light border-primary"
                 style={{
                   width: 240,
                   height: 32,
                   borderRadius: 4,
-                  backgroundColor: WIDTH_SAMPLE_BG,
-                  border: `${px}px solid ${WIDTH_SAMPLE_BORDER}`,
+                  borderWidth: px,
+                  borderStyle: 'solid',
                   boxSizing: 'border-box',
                 }}
               />

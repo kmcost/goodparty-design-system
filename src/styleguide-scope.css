@@ -35,6 +35,8 @@
   --foreground: var(--brand-text-primary); /* #000000 */
   --color-background: var(--brand-surface-primary);
   --color-foreground: var(--brand-text-primary);
+  --color-base-foreground: var(--base-foreground);
+  --color-base-background: var(--base-background);
 
   /* Border & Input */
   --border: var(--brand-border-primary); /* #D1D8DF */
@@ -71,6 +73,13 @@
   --color-destructive-foreground: var(--theme-destructive-foreground);
   --color-destructive-dark: var(--theme-destructive-dark);
   --color-destructive-light: var(--theme-destructive-light);
+
+  /* Theme (light variants) */
+  --color-primary-light: var(--theme-primary-light);
+  --color-secondary-light: var(--theme-secondary-light);
+  --color-success-light: var(--theme-success-light);
+  --color-info-light: var(--theme-info-light);
+  --color-warning-light: var(--theme-warning-light);
 
   /* Card */
   --card: var(--brand-surface-primary); /* #FFFFFF */
@@ -233,6 +242,8 @@
   --base-ring-offset: #ffffff;
   --base-foreground-dark: var(--tw-neutral-950);
   --base-background-dark: #ffffff;
+  --color-base-foreground: var(--base-foreground);
+  --color-base-background: var(--base-background);
 
   /*
    * ==========================================================================
@@ -387,6 +398,7 @@
   --primary-foreground: var(--theme-primary-foreground);
   --color-primary: var(--theme-primary);
   --color-primary-foreground: var(--theme-primary-foreground);
+  --color-primary-light: var(--theme-primary-light);
 
   /* Background/Foreground */
   --background: var(--base-background);
@@ -431,6 +443,7 @@
   --secondary-foreground: var(--theme-secondary-foreground);
   --color-secondary: var(--theme-secondary);
   --color-secondary-foreground: var(--theme-secondary-foreground);
+  --color-secondary-light: var(--theme-secondary-light);
 
   /* Tertiary */
   --color-tertiary: var(--theme-tertiary);
@@ -453,11 +466,16 @@
   --color-info: var(--theme-info);
   --color-info-dark: var(--theme-info-dark);
   --color-info-contrast: var(--theme-info-foreground);
+  --color-info-light: var(--theme-info-light);
 
   /* Success */
   --color-success: var(--theme-success);
   --color-success-dark: var(--theme-success-dark);
   --color-success-contrast: var(--theme-success-foreground);
+  --color-success-light: var(--theme-success-light);
+
+  /* Warning */
+  --color-warning-light: var(--theme-warning-light);
 
   /* Card */
   --card: var(--component-card-base);
